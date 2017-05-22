@@ -1,3 +1,5 @@
-nginx
+@echo off
 
-node ../backEnd/index.js
+tasklist|find "nginx.exe"
+
+if ERRORLEVEL 1 (nginx.exe) else (nginx.exe -s reload)
