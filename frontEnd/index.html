@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点击">
+    <div>
+       
+         
+    </div>
+    <script>
+    
+document.querySelector("input").onclick = function () {
+    // alert(1);
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "/backend/aa");
+    xhr.send(null);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var data = xhr.responseText;
+            // console.log( data);2
+            var obj = eval("("+data+")");
+            // var obj = Function("return data")()
+            // var obj = JSON.stringify(data);
+            console.log(obj);
+        //    for(k in obj){
+        //        console.log(obj[k]);
+        //    }
+        var result = obj.results;
+        for (var i = 0; i < result.length; i ++) {
+            console.log(result[i].name);
+            var didi = result[i].name;
+            console.log(didi); 
+            var p =document.createElement("p");
+            p.innerHTML = didi;
+            document.querySelector("div").appendChild(p);
+            
+        }
+        // document.querySelector("p").innerHTML = didi;
+        
+
+            // document.querySelector("p").innerHTML = obj[i].name;
+        }
+    }
+
+
+
+}
+
+    </script>
+</body>
+</html>
