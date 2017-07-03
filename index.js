@@ -30,17 +30,10 @@ app.use('/api', require("./api.js"));
 
 app.use('/', require("./view.js"));
 
-/*app.get('/get', function(req, res) {
-    console.log('get == >', req.originalUrl);
-
-    res.send('fasdfasdf');
-});
-
-app.get('/get/:id', function(req, res) {
-    console.log('get id == >', req.originalUrl);
-
-    res.send('xxxxxxxx');
-});*/
-
-
 app.listen(8800);
+
+console.log('当前服务起的端口为8800，访问页面的方式为:http://localhost:8800/index.html');
+
+var open = require('open');
+
+open("http://localhost:8800/index.html");
